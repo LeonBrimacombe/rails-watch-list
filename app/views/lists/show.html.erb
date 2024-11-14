@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="m-4">
+    <div>
+      <h3><%= @list.name %> </h3>
+    </div>
+  </div>
+
+  <div class="btn-center">
+    <p class="link-btn"><%= link_to "Add movie", new_list_bookmark_path(@list) %></p>
+  </div>
+
+
+  <% @bookmarks.each do |bookmark| %>
+    <div class="card-movie">
+      <%= image_tag bookmark.movie.poster_url %>
+      <div class="card-movie-info">
+        <div>
+          <div class="header">
+            <h2> <%= bookmark.movie.title %></h2>
+            <h2> <%= bookmark.movie.rating %> ⭐</h2>
+          </div>
+          <p><%= bookmark.movie.overview %></p>
+        </div>
+        <div>
+          <p class="comment"> 💬 <%= bookmark.comment %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
