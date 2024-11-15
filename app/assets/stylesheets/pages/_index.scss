@@ -4,16 +4,6 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: whitesmoke;
-  font-size: 50px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-category {
@@ -33,7 +23,6 @@
     filter: brightness(150%);
   }
 }
-
 
 
 .link-btn {
@@ -59,6 +48,12 @@
   }
 }
 
+.link-name {
+    text-decoration: none;
+    font-size: 30px;
+    color: whitesmoke
+}
+
 .btn-center {
   display: flex;
   justify-content: center;
@@ -72,11 +67,6 @@
   h4 {
     font-size: 100px;
     color: whitesmoke
-    };
-  a {
-      text-decoration: none;
-      font-size: 30px;
-      color: whitesmoke
     };
 }
 

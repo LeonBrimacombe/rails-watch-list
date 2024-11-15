@@ -1,9 +1,15 @@
-<div class="container mt-5">
-  <h3> New <%= @list.name.downcase %> movie </h3>
+<%= turbo_frame_tag "modal" do %>
+  <div class="turbo-popup">
+    <h3> New <%= @list.name.downcase %> movie </h3>
 
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :comment %>
-    <%= f.association :movie %>
-    <%= f.submit class: 'btn-submit mt-3'%>
-  <% end %>
-</div>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.submit class: 'btn-submit mt-3'%>
+    <% end %>
+    <%= link_to "Cancel", "#", data: {
+      controller: "modals",
+      action: "modals#close"
+    }, class: "cancel-button" %>
+  </div>
+<% end %>

@@ -1,10 +1,12 @@
-<p> <%= link_to "← back to collections", lists_path %> </p>
 <% if @list.photo.attached? %>
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300, crop:   :fill, transformation: [{effect: "saturation:0"}] %>');">
-    <div class="container">
+    <div>
+      <%= link_to "← back to collections", lists_path, class:"back-arrow"%>
+    </div>
+    <div class="container banner-content">
       <h1> <%= @list.name %> List </h1>
       <div class="btn-center">
-        <p class="link-btn-light"><%= link_to "Add bookmark",   new_list_bookmark_path(@list) %></p>
+        <p class="link-btn-light"><%= link_to "Add bookmark",   new_list_bookmark_path(@list), data: { turbo_frame: "modal" } %></p>
       </div>
     </div>
   </div>
@@ -25,12 +27,12 @@
       <div class="card-movie">
         <%= image_tag bookmark.movie.poster_url %>
         <div class="card-movie-info">
-          <div>
+          <div class="card-content">
             <div class="header">
               <h2> <%= bookmark.movie.title %></h2>
               <h2> <%= bookmark.movie.rating %> ⭐</h2>
             </div>
-            <p class="link-btn-sm"><%= link_to "Delete bookmark",   list_bookmark_path(bookmark) %></p>
+            <p class="link-btn-sm"><%= link_to "Delete bookmark",   list_bookmark_path(@list, bookmark) %></p>
             <p><%= bookmark.movie.overview %></p>
           </div>
           <div>

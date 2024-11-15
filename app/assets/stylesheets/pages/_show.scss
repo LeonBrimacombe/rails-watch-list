@@ -1,3 +1,23 @@
+.back-arrow {
+  padding: 5px;
+  text-decoration: none;
+  color: #ffffff96;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 150px 0;
+}
 
 .card-movie {
   overflow: hidden;
@@ -20,7 +40,7 @@
       align-items: center;
       display: inline-block;
       background-color: #ffffff96;
-      font-size: 6px;
+      font-size: 10px;
       padding: 4px 12px;
       border: solid;
       border-color: #8e8e8e96;
@@ -64,8 +84,6 @@
   grid-gap: 16px;
   margin-top: 30px;
 }
-
-
 
 .link-btn-light {
   margin-top: 12px;
