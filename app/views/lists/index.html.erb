@@ -5,17 +5,24 @@
   </div>
 </div>
 
-
 <div class="container">
-  <div class="btn-center">
-    <p class="link-btn"><%= link_to "Add list", new_list_path(@bookmark) %></p>
-  </div>
+    <div class="btn-center">
+      <p class="link-btn">
+          <%= link_to "Add list", new_list_path, data: { turbo_frame: "modal" } %>
+      </p>
+    </div>
 
   <div class="cards">
     <% @lists.each do |list|%>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= list.image_url %>')">
-        <h5> <%= link_to list.name, list %> </h5> <br>
-      </div>
+      <% if list.photo.attached? %>
+        <div class="card-category"  style="background-image: linear-gradient(rgba(0,0, 0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path   list.photo.key, height: 300, crop: :fill, transformation: [{effect: "saturation:0"}] %> ')">
+          <h5> <%= link_to list.name, list %> </h5> <br>
+        </div>
+      <% else %>
+        <div class="card-category"  style="background-image: linear-gradient(rgba(0,0, 0,0.3), rgba(0,0,0,0.3)), url('https://t3.ftcdn.net/jpg/02/91/95/08/360_F_291950851_ouDQ0GFMb4X4MsjY1VVP6xi2zOej3AGh.jpg')">
+          <h5> <%= link_to list.name, list %> </h5> <br>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

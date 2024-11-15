@@ -1,9 +1,16 @@
-<div class="container mt-5">
-  <h3> <%= @list.name %> New list </h3>
+<%= turbo_frame_tag "modal" do %>
+  <div class="turbo-popup">
+    <h3> <%= @list.name %> New list </h3>
 
-  <%= simple_form_for [@list] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :image_url %>
-    <%= f.submit %>
-  <% end %>
-</div>
+    <%= simple_form_for [@list] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit %>
+    <% end %>
+
+    <%= link_to "Cancel", "#", data: {
+      controller: "modals",
+      action: "modals#close"
+    }, class: "cancel-button" %>
+  </div>
+<% end %>

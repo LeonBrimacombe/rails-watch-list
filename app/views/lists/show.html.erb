@@ -1,14 +1,23 @@
 <p> <%= link_to "← back to collections", lists_path %> </p>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @list.image_url %>');">
-  <%# <p class="link-banner"><%= link_to "⇦ Back to colletions", lists_path %>
-  <div class="container">
-    <h1> <%= @list.name %> List </h1>
-    <div class="btn-center">
-      <p class="link-btn-light"><%= link_to "Add bookmark", new_list_bookmark_path(@list) %></p>
+<% if @list.photo.attached? %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300, crop:   :fill, transformation: [{effect: "saturation:0"}] %>');">
+    <div class="container">
+      <h1> <%= @list.name %> List </h1>
+      <div class="btn-center">
+        <p class="link-btn-light"><%= link_to "Add bookmark",   new_list_bookmark_path(@list) %></p>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://t3.ftcdn.net/jpg/02/91/95/08/360_F_291950851_ouDQ0GFMb4X4MsjY1VVP6xi2zOej3AGh.jpg');">
+    <div class="container">
+      <h1> <%= @list.name %> List </h1>
+      <div class="btn-center">
+        <p class="link-btn-light"><%= link_to "Add bookmark",   new_list_bookmark_path(@list) %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="container">
   <div class="cards">
@@ -21,6 +30,7 @@
               <h2> <%= bookmark.movie.title %></h2>
               <h2> <%= bookmark.movie.rating %> ⭐</h2>
             </div>
+            <p class="link-btn-sm"><%= link_to "Delete bookmark",   list_bookmark_path(bookmark) %></p>
             <p><%= bookmark.movie.overview %></p>
           </div>
           <div>
