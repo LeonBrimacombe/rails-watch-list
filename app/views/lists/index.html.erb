@@ -1,8 +1,10 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://t3.ftcdn.net/jpg/05/00/81/96/240_F_500819621_7bRfuKkKyaRYU6aJ1Sa9RBCPdscka6Iq.jpg)">
-  <div class="card-category">
-    <h4>Collections</h4>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpapers.com/images/featured/black-and-white-movie-3n3oyvkx3q5t49rb.jpg);">
+  <div class="container">
+    <h1><strong>Your</strong> Collections</h1>
+    <h6>All in one place</h6>
   </div>
 </div>
+
 
 <div class="container">
   <div class="btn-center">
@@ -11,7 +13,7 @@
 
   <div class="cards">
     <% @lists.each do |list|%>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://t4.ftcdn.net/jpg/02/71/50/69/360_F_271506927_WWFfd92jDIIDx6DgMflakU14o5jRPgBm.jpg)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= list.image_url %>')">
         <h5> <%= link_to list.name, list %> </h5> <br>
       </div>
     <% end %>

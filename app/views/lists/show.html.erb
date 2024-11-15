@@ -1,14 +1,16 @@
-<div class="container mt-5">
-  <div class="m-4">
-    <div>
-      <h3><%= @list.name %> </h3>
+<p> <%= link_to "← back to collections", lists_path %> </p>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @list.image_url %>');">
+  <%# <p class="link-banner"><%= link_to "⇦ Back to colletions", lists_path %>
+  <div class="container">
+    <h1> <%= @list.name %> List </h1>
+    <div class="btn-center">
+      <p class="link-btn-light"><%= link_to "Add bookmark", new_list_bookmark_path(@list) %></p>
     </div>
   </div>
+</div>
 
-  <div class="btn-center">
-    <p class="link-btn"><%= link_to "Add movie", new_list_bookmark_path(@list) %></p>
-  </div>
-
+<div class="container">
   <div class="cards">
     <% @bookmarks.each do |bookmark| %>
       <div class="card-movie">
